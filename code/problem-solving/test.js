@@ -18,8 +18,11 @@
 
 // charCount("Hello I am the String");
 
-const charCout = (str) =>{
 
+// ****** PROBLEM - EACH CHAR COUNT IN THE STRING 
+
+//The first solution
+const charCout = (str) =>{
   const countObj = {};
   const newStr = str.split(" ").join("");
   console.log("New str => ", newStr);
@@ -40,3 +43,27 @@ const charCout = (str) =>{
 }
 
 charCout("hellohh I am good person hahahahha");
+
+
+// The optimized solution
+
+const charCountInString = (str) =>{
+
+  const countObj = {};
+  const newStr = (str.split(" ").join("")).split("");
+
+  newStr.forEach((singleChar)=>{
+
+    if(countObj[singleChar])
+    {
+     countObj[singleChar] += 1;
+    }
+    else
+    {
+      countObj[singleChar]=1;
+    }
+  })
+  console.log(countObj);
+}
+
+charCountInString("hellohh I am good person hahahahha")
